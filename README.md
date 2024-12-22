@@ -57,12 +57,8 @@ See live demo here: https://movie-theater-cs50w.herokuapp.com/
     - Manage ticket type and price for each types
     - Manage movies, genres, screens, seats, theaters, ticket types and bookings by user
 
-## How to run
-1. Clone this repo
-```
-git clone https://github.com/ibretsam/movie-theater.git
-```
-2. Create a virtual environment and activate it:
+## How to launch
+1. Create a virtual environment and activate it:
 
 ```
 # Create a virtual environment
@@ -74,69 +70,36 @@ python3 -m venv venv
 	# Windows:
 	venv/Scripts/activate.bat
 ```
-3. Install required python dependencies:
+2. Install required python dependencies:
 ```
 pip install -r requirements.txt
 ```
 
-4. Navigate into main front-end foldder: 
+3. Navigate into main front-end foldder: 
 ```
 cd front-end/movietheater
 ``` 
 
-5. Install required Node dependencies:
+4. Install required Node dependencies:
 ```
 npm install --legacy-peer-deps
 ```
 
-6. Build React app:
+5. Build React app:
 ```
 npm run build
 ```
-7. Navigate back to main project folder
+6. Navigate back to main project folder
 ```
 cd ../..
 ```
-8. And finally start the Django web server
+7. And finally start the Django web server
 ```
 python manage.py runserver
 ```
-9. Go to the URL provided in the terminal and you should be redirected to the Homepage!
+8. Go to the URL provided in the terminal and you should be redirected to the Homepage!
 
-## Usage
-When open the index page (`/`), you should be direct to the login page, if you're logged in, you will be direct to the `homepage` (note that you don't have to logged in to go to the `homepage`, but you'll need to logged to use some others function)
-In the home page, there're some pre-created movies I've added, you can add more or remove them in the Django Admin panel (To create admin account: `python manage.py createsuperuser`)
-
-![Homepage](doc/homepage.jpg)
-You can select any movies, that will redirect you to the `movie page`.
-
-![MoviePage](doc/moviePage.jpg)
-In the `movie page`, you can see some movie informations like the title, the synopsis and the trailer video from youtube.
-To book a ticket for this movie, click on `Book now`, you'll be directed to the page where you can select date and time for the movie.
-
-![screeningPage](doc/screeningPage.jpg)
-On this page, you can select time to watch the movie based on the schedule that the admin created for this movie.
-Choose a time, and you'll be directed to `Select seat page`
-
-![seatPage](doc/seatPage.jpg)
-On this page, you can see all the taken seat by other users, you cannot choose those seats, you can only choose the available seats (Only choose 1 seat at a time).
-After choosing seat, you can choose the ticket types that the admin has added for this movie. 
-Click `Next` and you'll be directed to the `ticketInfo Page`
-
-![ticketInfo](doc/ticketInfoPage.jpg)
-On this page, you can see all the information of your ticket, includes the movie, date, time, seat code and ticket type.
-
-You can see your booking history by click on your username, it'll direct you to the history page.
-
-![historyPage](doc/historyPage.jpg)
-On this page, you can see all the ticket that you've booked, click on any of that, it'll direct you to the `ticketInfo Page` to see all ticket details
-
-##### Django Admin
-Go to the Django Admin panel (`/admin`) and login with you admin account, you can manage some of the model I've registed with Django Admin
-![DjangoAdmin](doc/djangoAdmin.jpg)
-
-
-## API
+## Апишки
 API managed by [Django-Rest-Framework](https://www.django-rest-framework.org/)
 
 #### WEBSITE API
@@ -259,60 +222,11 @@ Return a refresh token every 4 minutes
 	'method': 'POST'
 	'body': {'refresh': String}
 
+## Отличительные особенности и сложность
+Для этого проекта самой большой проблемой для меня было сделать frontend и backend как два отдельных приложения, backend, использующий `Django Rest Framework` для управления и ответа на вызовы API, и frontend, использующий `ReactJS` для пользовательского интерфейса.
+Это первое приложение, которое я когда-либо создавал с `ReactJS`, поэтому мне нужно много узнать о `ReactJS`, чтобы создать frontend-интерфейс для некоторых функций, таких как реализация аутентификации JWT, создание выбора даты, времени и страниц выбора места.
+Backend, использующий `Django`, имеет 7 моделей, использует `Django Admin panel` для управления всеми объектами модели и использует `Django Rest Framework` для сериализации и ответа на вызовы API.
 
-## Source code tree
-- 📁 `finalProject` - Main project dir
-	- 📁 `capstone`
-	- 📁 `front-end` - Frontend (ReactJS)
-		- 📁 `movietheater`
-			- 📁 `build` - React build folder (auto-created)
-			- 📁 `node_modules` - Contains all node modules installed via `npm`
-			- 📁 `public` - Defaul React files
-			- 📁 `src` - Main React folder
-				- 📁 `components` - React Components
-					- 📄 `Header.js` - Header
-					- 📄 `ListMovies.js` - To show all movies in homepage
-					- 📄 `ListTicket.js` - To show all ticket types in booking page
-					- 📄 `Theater.js` - Default theater page (64 seats)
-				- 📁 `context` - React context
-					- 📄 `AuthContext.js` - Authentication context (Login, Register, Update refresh token)
-				- 📁 `pages` - All pages react components
-					- 📄 `BookingPage.js` - For users to choose seat and ticket types
-					- 📄 `ConfirmationPage.js` - For users to see their booking info
-					- 📄 `LoginPage.js` - For users to login
-					- 📄 `MoviePage.js` - Template for single movie page
-					- 📄 `MoviesListPage.js` - Listing all movies page
-					- 📄 `ProfilePage.js` - For users to see their booking history
-					- 📄 `RegistrationPage.js` - For users to register an account
-					- 📄 `ScreeningPage.js` - For users to choose date and time of a movie
-				- 📁 `utils`
-					- 📄 `PrivateRoute.js` - For config private routes (Only logged in users can go to these routes)
-				- 📄 `App.css` - Main app CSS files
-				- 📄 `App.js` - Main React component
-				- 📄 `index.js` - React app entry
-			- 📄 `package-lock.json` - React default file
-			- 📄 `package.json` - Package manager file
-			- 📄 `README.md` - React default file
-	- 📁 `movieTheater` - Backend (Django)
-		- 📁 `auth` - Authentication files
-			- 📄 `serializers.py` - Serializer for authentication models
-			- 📄 `urls.py` - Authentication urls
-			- 📄 `views.py` - Authentication views
-		- 📁 `migration` - Database migration files
-		- 📄 `admin.py` - Register models in Django's admin panel.
-		- 📄 `apps.py` - App configurations.
-		- 📄 `models.py` - App models.
-		- 📄 `serializers.py` - Serializers for app models
-		- 📄 `tests.py` - App tests
-		- 📄 `urls.py` - App urls
-		- 📄 `views.py` - App views
-	- 📄 `requirement.txt` - Required python dependency
-
-## Distinctiveness and Complexity
-For this project, the biggest challenge to me is make the frontend and backend as two seperated apps, the backend using `Django Rest Framework` to manage and response to API calls and the frontend using `ReactJS` for UI. 
-This is the first app I've ever built with `ReactJS` so I have to learn a lot about `ReactJS` in order to make the frontend interface for some features like implementing JWT authentication, making the select date, time and choosing seat pages. 
-The backend using `Django` has 7 models, utilizes `Django Admin panel` to manage all the model objects and using `Django Rest Framework` to serialize and response to API calls.
-
-## Footnote
-I know it's not a "perfect" website for a movie theater, it still lack of a lot of features and you will find it not very convenient to use, I wish I had more time to work on this project, I'd fix a lot of issues the app is having and make it much better, but for the short time I've spent on this project, I've learnt a lot about Django, DRF and React, and I'm proud of my work.
-Thank you very much!
+## Сноска
+Я знаю, что это не «идеальный» веб-сайт для кинотеатра, ему все еще не хватает многих функций, и вы найдете его не очень удобным в использовании. Хотелось бы иметь больше времени для работы над этим проектом, я бы исправил множество проблем в приложении и сделал бы его намного лучше, но за то короткое время, что я провел над этим проектом, я узнал много нового о Django, DRF и React, и я горжусь своей работой.
+Большое спасибо!
