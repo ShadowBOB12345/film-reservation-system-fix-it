@@ -1,36 +1,6 @@
-# film-reservation-system
-
-- [film-reservation-system](#movie-theater)
-    - [Technologies used](#technologies-used)
-    - [Project requirements](#project-requirements)
-    - [Key features](#key-features)
-- [How to run](#how-to-run)
-- [API](#api)
-- [Source code tree](#source-code-tree)
-- [Distinctiveness and Complexity](#distinctiveness-and-complexity)
-- [Footnote](#footnote)
-
-## Movie Theater
+## film-reservation-system
 This project is for the final project [Capstone](https://cs50.harvard.edu/web/2020/projects/final/cap) of the online course [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/). The project replicates the basic functions of a movie theater website, where users can register for an account, see which movies is showing, select times, choose a seat, book a ticket for a movie, and see their booking history.
 This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for frontend.
-
-See live demo here: https://movie-theater-cs50w.herokuapp.com/
-
-### Technologies used:
-- Python
-- Django:
-	- Uses [Django-Rest-Framework](https://www.django-rest-framework.org/) for API manage:
-		- Uses `@api_view` decorator to response to API calls
-		- Uses `ModelSerializer` to serialize all model query to return results
-		- Implement [JWT Authentication](https://jwt.io/) to Django using [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/) for [Django-Rest-Framework](https://www.django-rest-framework.org/)
-- Javascript (ES6):
-    - Uses `Fetch API` for all API calls to communicate with backend.
-- ReactJS:
-	- Uses ReactJS for frontend UI, only communicates with backend through API calls.
-	- Uses `Hash Router` and `useNavigate` from [react-router-dom](http://reactrouter.com/) to routes and navigate through pages.
-- Bootstrap:
-    - Uses [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/) for CSS decoration.
-
 
 ### Project requirements:
 - Must be sufficiently distinct from the other projects in this course.
