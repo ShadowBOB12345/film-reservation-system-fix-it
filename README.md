@@ -1,6 +1,6 @@
-# Final Project (Capstone)
+# film-reservation-system
 
-- [Movie Theater](#movie-theater)
+- [film-reservation-system](#movie-theater)
     - [Technologies used](#technologies-used)
     - [Project requirements](#project-requirements)
     - [Key features](#key-features)
