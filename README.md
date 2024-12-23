@@ -63,11 +63,23 @@ npm run build
 ```
 cd ../..
 ```
-7. And finally start the Django web server
+7. Install django
+```
+pip install django
+```
+8. Install Django REST Framework
+```
+pip install djangorestframework
+```
+9. Install djangorestframework-simplejwt
+```
+pip install djangorestframework-simplejwt
+```
+10. And finally start the Django web server
 ```
 python manage.py runserver
 ```
-8. Go to the URL provided in the terminal and you should be redirected to the Homepage!
+11. Go to the URL provided in the terminal and you should be redirected to the Homepage!
 
 ## Апишки
 API managed by [Django-Rest-Framework](https://www.django-rest-framework.org/)
