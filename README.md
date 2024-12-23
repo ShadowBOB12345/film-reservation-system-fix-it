@@ -28,7 +28,7 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
     - Manage movies, genres, screens, seats, theaters, ticket types and bookings by user
 
 ## How to launch
-1. Create a virtual environment and activate it:
+1. Создайте виртуальную среду и активируйте ее:
 
 ```
 # Create a virtual environment
@@ -40,89 +40,89 @@ python3 -m venv venv
 	# Windows:
 	venv/Scripts/activate.bat
 ```
-2. Install required python dependencies:
+2. Установите необходимые зависимости Python:
 ```
 pip install -r requirements.txt
 ```
 
-3. Navigate into main front-end foldder: 
+3. Перейдите в основную папку интерфейса:
 ```
 cd front-end/movietheater
 ``` 
 
-4. Install required Node dependencies:
+4. Установите необходимые зависимости Node:
 ```
 npm install --legacy-peer-deps
 ```
 
-5. Build React app:
+5. Создайте приложение React:
 ```
 npm run build
 ```
-6. Navigate back to main project folder
+6. Вернитесь в основную папку проекта.
 ```
 cd ../..
 ```
-7. Install django
+7. Установить django
 ```
 pip install django
 ```
-8. Install Django REST Framework
+8. Установить Django REST Framework
 ```
 pip install djangorestframework
 ```
-9. Install djangorestframework-simplejwt
+9. Установить djangorestframework-simplejwt
 ```
 pip install djangorestframework-simplejwt
 ```
-10. And finally start the Django web server
+10. И наконец запустите веб-сервер Django
 ```
 python manage.py runserver
 ```
-11. Go to the URL provided in the terminal and you should be redirected to the Homepage!
+11. Перейдите по URL-адресу, указанному в терминале, и вы будете перенаправлены на домашнюю страницу!
 
 ## Апишки
 API managed by [Django-Rest-Framework](https://www.django-rest-framework.org/)
 
-#### WEBSITE API
+#### АПИШКИ ВЭБ-САЙТА
 
 ###### GET MOVIES:
-Returns an array of movies object
+Возвращает массив объектов фильмов.
 
 	'Endpoint': '/movies/',
 	'method': 'GET',
 	'body': None
 
 ###### GET SINGLE MOVIE:
-Returns a single movie object
+Возвращает один объект фильма
 
 	'Endpoint': '/movies/id',
 	'method': 'GET',
 	'body': None
 
 ###### GET SCREEN
-Returns an array of screen object of the movie object
+Возвращает массив экранных объектов объекта фильма.
 
 	'Endpoint': '/movies/id/screen',
 	'method': 'GET',
 	'body': None
 
 ###### GET SINGLE SCREEN
-Returns a single screen object
+Возвращает один экранный объект
 
 	'Endpoint': '/movies/id/screen/screenId',
 	'method': 'GET',
 	'body': None
 
 ###### GET SINGLE TICKET
-Returns a single ticket_type object
+Возвращает один объект ticket_type
 
 	'Endpoint': '/ticket/ticketId',
 	'method': 'GET',
 	'body': None
 
 ###### CREATE SEAT & BOOKING
-Create new seat object and new booking object
+Создать новый объект места и новый объект бронирования
 
 	'Endpoint': '/movies/id/screen/screenId/book',
 	'method': 'POST',
@@ -133,7 +133,7 @@ Create new seat object and new booking object
 	'body': {'body': {booking_object}}
 
 ###### GET TAKEN SEAT
-Returns an array of taken seat of the screen object that related to
+Возвращает массив занятых мест экранного объекта, которые относятся к
 
 	'Endpoint': '/movies/id/screen/screenId/getSeatsInfo',
 	'method': 'POST',
@@ -144,7 +144,7 @@ Returns an array of taken seat of the screen object that related to
 	'body': None
 
 ###### GET TICKET TYPES
-Returns an array of ticket type of the screen object that related to
+Возвращает массив типов билетов экранного объекта, которые относятся к
 
 	'Endpoint': '/movies/id/screen/screenId/getTicketInfo',
 	'method': 'POST',
@@ -155,7 +155,7 @@ Returns an array of ticket type of the screen object that related to
 	'body': None
 
 ###### GET SINGLE BOOKING
-Returns a single booking object
+Возвращает один объект бронирования
 
 	'Endpoint': '/movies/id/screen/screenId/booking/bookingId',
 	'method': 'POST',
@@ -166,7 +166,7 @@ Returns a single booking object
 	'body': None
 
 ###### GET BOOKINGS
-Returns an array of booking objects by a specific user
+Возвращает массив объектов бронирования определенного пользователя.
 
 	'Endpoint': '/movies/id/screen/screenId/booking/bookingId/getSeatInfo',
 	'method': 'POST',
@@ -175,8 +175,8 @@ Returns an array of booking objects by a specific user
 #### AUTHENTICATION API
 Authentication with [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/) package for Django
 
-###### REGISTER
-Register a user with their username, email, password, confirm password
+###### РЕГИСТРАЦИЯ
+Зарегистрируйте пользователя, указав его имя пользователя, адрес электронной почты, пароль, подтвердите пароль.
 
 	'Endpoint': '/auth/register/'
 	'method': 'POST'
@@ -187,8 +187,8 @@ Register a user with their username, email, password, confirm password
 		'email': String
 	}
 
-###### GET TOKEN (LOGIN)
-Return an authentication token if user credentials are correct
+###### ПОЛУЧИТЬ ТОКЕН (ВХОД)
+Возвращает токен аутентификации, если учетные данные пользователя верны.
 
 	'Endpoint': '/auth/token/'
 	'method': 'POST'
@@ -197,8 +197,8 @@ Return an authentication token if user credentials are correct
 		'password': String
 	}
 
-###### GET REFRESH TOKEN
-Return a refresh token every 4 minutes
+###### ПОЛУЧИТЬ ОБНОВЛЯЮЩИЙ ТОКЕН
+Возвращать токен обновления каждые 4 минуты
 
 	'Endpoint': '/auth/token/refresh/'
 	'method': 'POST'
