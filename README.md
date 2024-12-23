@@ -2,13 +2,6 @@
 This project is for the final project [Capstone](https://cs50.harvard.edu/web/2020/projects/final/cap) of the online course [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/). The project replicates the basic functions of a movie theater website, where users can register for an account, see which movies is showing, select times, choose a seat, book a ticket for a movie, and see their booking history.
 This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for frontend.
 
-### Project requirements:
-- Must be sufficiently distinct from the other projects in this course.
-- Utilizes Django (with at lease one model) on the back-end and JavaScript on the front-end.
-- All pages are mobile responsive.
-- Uses ReactJS for frontend UI, only communicates with backend through API calls.
-
-
 ### Key features:
 - ReactJS for frontend UI
 - JWT authentication for user
